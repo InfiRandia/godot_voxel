@@ -763,6 +763,11 @@ void VoxelStreamSQLite::save_instance_blocks(ArraySlice<VoxelStreamInstanceDataR
 	}
 }
 
+int VoxelStreamSQLite::get_used_channels_mask() const {
+	// Assuming all, since that stream can store anything.
+	return VoxelBuffer::ALL_CHANNELS_MASK;
+}
+
 void VoxelStreamSQLite::flush_cache() {
 	VoxelStreamSQLiteInternal *con = get_connection();
 	ERR_FAIL_COND(con == nullptr);

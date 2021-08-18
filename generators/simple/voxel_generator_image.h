@@ -18,7 +18,13 @@ public:
 	void set_blur_enabled(bool enable);
 	bool is_blur_enabled() const;
 
-	void generate_block(VoxelBlockRequest &input) override;
+	void set_repeat_enabled(bool enable);
+	bool is_repeat_enabled() const;
+
+	void set_centered(bool value);
+	bool is_centered() const;
+
+	void generate_block(VoxelBlockRequest& input) override;
 
 private:
 	static void _bind_methods();
@@ -34,6 +40,8 @@ private:
 		Ref<Image> image;
 		// Mostly here as demo/tweak. It's better recommended to use an EXR/float image.
 		bool blur_enabled = false;
+		bool repeat_enabled = true;
+		bool centered = false;
 	};
 
 	Parameters _parameters;
